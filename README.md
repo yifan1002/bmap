@@ -8,11 +8,11 @@
 
 ## mapIonfo.js参数说明
 ### center：需要显示地图的中心点
-> latitude：纬度
+> latitude：纬度  
 > longitude：经度
 
 ### areaList: 学区范围设置
-> markPoint: 图片标注、文本标注、信息窗口的定位点
-> schoolName: 学校名称
-> schoolArea: 学区范围文字说明
+> markPoint: 图片标注、文本标注、信息窗口的定位点  
+> schoolName: 学校名称  
+> schoolArea: 学区范围文字说明  
 > areaPoint: 学区地图标注点，点越多定位越准
