@@ -41,27 +41,27 @@ var center = {
 			new BMap.Point(120.143143, 30.30211)
 		]
 	}, {
-		markPoint: [120.143214, 30.269552],
+		markPoint: [120.143214,30.269552],
 		schoolName: '浙江图书馆',
 		schoolArea: '<p style="font-size: 12px;"><span style="font-size: 18px;">&bull;&nbsp;</span>天目山西路以南，保俶路以西，北山街以北，孤山路以北</p><p style="font-size: 12px;"><span style="font-size: 18px;">&bull;&nbsp;</span>孤山路以东，北山街以北，曙光路以东，浙大路以北，玉古路以东</p>',
 		areaPoint: [
-			new BMap.Point(120.136818, 30.277974),
-			new BMap.Point(120.143071, 30.277475),
-			new BMap.Point(120.152269, 30.277974),
-			new BMap.Point(120.154282, 30.271923),
-			new BMap.Point(120.161037, 30.265872),
-			new BMap.Point(120.159025, 30.265248),
-			new BMap.Point(120.152629, 30.258261),
-			new BMap.Point(120.150976, 30.256763),
-			new BMap.Point(120.148029, 30.256077),
-			new BMap.Point(120.145945, 30.256326),
-			new BMap.Point(120.145298, 30.256576),
-			new BMap.Point(120.145298, 30.257699),
-			new BMap.Point(120.14458, 30.25851),
-			new BMap.Point(120.141993, 30.257949),
-			new BMap.Point(120.13689, 30.259009),
-			new BMap.Point(120.137609, 30.265809),
-			new BMap.Point(120.132578, 30.267494),
-			new BMap.Point(120.136818, 30.277786)
+			new BMap.Point(120.136818,30.277974),
+			new BMap.Point(120.143071,30.277475),
+			new BMap.Point(120.152269,30.277974),
+			new BMap.Point(120.154282,30.271923),
+			new BMap.Point(120.161037,30.265872),
+			new BMap.Point(120.159025,30.265248),
+			new BMap.Point(120.152629,30.258261),
+			new BMap.Point(120.150976,30.256763),
+			new BMap.Point(120.148029,30.256077),
+			new BMap.Point(120.145945,30.256326),
+			new BMap.Point(120.145298,30.256576),
+			new BMap.Point(120.145298,30.257699),
+			new BMap.Point(120.14458,30.25851),
+			new BMap.Point(120.141993,30.257949),
+			new BMap.Point(120.13689,30.259009),
+			new BMap.Point(120.137609,30.265809),
+			new BMap.Point(120.132578,30.267494),
+			new BMap.Point(120.136818,30.277786)
 		]
 	}]

@@ -1,5 +1,3 @@
-# bmap
-
 ## 开发流程
 1. [百度地图开发平台申请AK](http://lbsyun.baidu.com/apiconsole/key)
 2. [百度地图拾取坐标点](http://api.map.baidu.com/lbsapi/getpoint/index.html)
