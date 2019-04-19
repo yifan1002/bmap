@@ -25,12 +25,20 @@ function addMarker(i) {
 	map.addOverlay(marker); //增加标注
 	ply.addEventListener("mousemove", function(e) {
 		$('path[stroke-linejoin=round]:eq(' + i + ')').siblings('path[stroke-linejoin=round]').attr('fill', 'none');
-		map.removeOverlay(plyHover); 	//移除鼠标滑过多边形
-		plyHover = new BMap.Polygon(areaList[i].areaPoint, plyStyleHover); //创建鼠标滑过多边形
-		map.addOverlay(plyHover); 		//增加鼠标滑过多边形
+		
+		//鼠标滑过多边形功能
+		map.removeOverlay(plyHover);
+		plyHover = new BMap.Polygon(areaList[i].areaPoint, plyStyleHover);
+		map.addOverlay(plyHover);
+		
+		//鼠标滑过文本标注功能
+		map.removeOverlay(txtHover);
+		txtHover = new BMap.Label('学校编号：' + areaList[i].schoolNo + '<br />学校名称：' + areaList[i].schoolName + '<br />招生电话：' + areaList[i].schoolTel, txtLocal, txtStyle);
+		map.addOverlay(txtHover);
 	});
 	ply.addEventListener("mouseout", function(e) {
 		map.removeOverlay(plyHover); 	//移除鼠标滑过多边形
+		map.removeOverlay(txtHover); 	//移除鼠标滑过多边形
 	});
 }
 

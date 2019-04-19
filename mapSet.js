@@ -1,4 +1,4 @@
-var plyHover;
+var plyHover, txtHover;
 //定义多边形样式
 var plyStyle = {
 	strokeColor: "red",
