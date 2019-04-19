@@ -6,16 +6,18 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<style type="text/css">
 			* {
-			    -webkit-box-sizing: border-box;
-			    -moz-box-sizing: border-box;
-			    box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
 			}
+			
 			*:before,
 			*:after {
-			    -webkit-box-sizing: border-box;
-			    -moz-box-sizing: border-box;
-			    box-sizing: border-box;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
 			}
+			
 			body,
 			html {
 				width: 100%;
@@ -60,57 +62,7 @@
 		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=YHX7MCGunoBoQLducuoML3lsmWh973ZE"></script>
 		<script type="text/javascript" src="mapSet.js"></script>
 		<script type="text/javascript" src="mapInfo.js"></script>
-		<script type="text/javascript">
-			// 百度地图API功能
-			var map = new BMap.Map("allmap");
-			map.centerAndZoom(new BMap.Point(center.latitude, center.longitude), 13);
-			map.enableScrollWheelZoom();
-			
-			// 生成学校列表
-			var str = '';
-			for(var i = 0; i < areaList.length; i++) {
-				str += '<option value=' + i + '>' + areaList[i].schoolName + '</option>' 
-			}
-			$('.school-list').append(str);
-			
-			// 生成学区
-			for(var i = 0; i < areaList.length; i++) {
-				var point = new BMap.Point(areaList[i].markPoint[0], areaList[i].markPoint[1]), //设置标注点坐标
-					text = new BMap.Label(areaList[i].schoolName, {
-						position: point,
-						offset: textOffset
-					}, textStyle), //创建文本标注
-					marker = new BMap.Marker(point), //创建图标标注
-					ply = new BMap.Polygon(areaList[i].areaPoint, shapeStyle); //创建多边形
-				map.addOverlay(marker); //增加标注
-				map.addOverlay(text); //增加文本标注
-				map.addOverlay(ply); //增加多边形
-			}
-
-			// 点击标注点显示学区
-			$('body').on('click', '.BMap_Marker.BMap_noprint', function() {
-				var index = $(this).index();
-				areaShow (index);
-			});
-			
-			// 搜索切换显示学区
-			$('body').on('change', '.school-list', function() {
-				var index = parseInt($(this).val());
-				if (index === 999) {
-					map.closeInfoWindow();
-					$('path[stroke-linejoin=round]').attr('fill', 'none');
-				} else{
-					areaShow (index);
-				}
-			});
-			
-			// 学区边界
-			function areaShow (index) {
-				infoWindow = new BMap.InfoWindow('<p style="color: #f00">' + areaList[index].schoolName + '</p>' + areaList[index].schoolArea, infoStyle); // 创建信息窗口对象 
-				map.openInfoWindow(infoWindow, new BMap.Point(areaList[index].markPoint[0], areaList[index].markPoint[1])); //开启信息窗口
-				$('path[stroke-linejoin=round]:eq(' + index + ')').attr('fill', '#fbfba7').siblings('path[stroke-linejoin=round]').attr('fill', 'none');
-			}
-		</script>
+		<script type="text/javascript" src="mapCore.js"></script>
 	</body>
 
 </html>
