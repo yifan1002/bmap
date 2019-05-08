@@ -44,6 +44,28 @@
 				height: 40px;
 				line-height: 40px;
 				background-color: #fff;
+				padding: 0 10px;
+			}
+			.form-control {
+				height: 24px;
+				background-color: #fff;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				padding-right: 10px;
+				padding-left: 10px;
+				vertical-align: middle;
+				color: #333;
+			}
+			button.form-control {
+				background-color: #f8f8f8;
+				cursor: pointer;
+			}
+			button.form-control:hover {
+				background-color: #eee;
+			}
+			button#searchLocal {
+				float: right;
+				margin-top: 8px;
 			}
 		</style>
 		<title>百度地图</title>
@@ -52,9 +74,13 @@
 	<body>
 		<div class="map-bar">
 			<span>小学片区</span>
-			<select class="school-list">
+			<select class="school-list form-control">
 				<option value="999">全部</option>
 			</select>
+			<input type="text" class="search-txt form-control" id="searchTxt" placeholder="请输入小区查找" />
+			<button class="search-btn form-control" id="searchBtn">查找</button>
+			<button class="search-btn form-control" id="searchClear">清除</button>
+			<button class="search-btn form-control" id="searchLocal">我的位置</button>
 		</div>
 		<div id="allmap"></div>
 

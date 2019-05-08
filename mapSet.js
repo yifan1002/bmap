@@ -11,6 +11,7 @@ var plyStyle = {
 var plyStyleHover = {
 	strokeColor: "red",
 	strokeWeight: 2,
+	strokeOpacity: 1,
 	strokeStyle: 'dashed',
 	fillColor: '#fbfba7'
 }

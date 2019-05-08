@@ -1,7 +1,9 @@
 // 百度地图API功能
 var map = new BMap.Map("allmap");
-map.centerAndZoom(new BMap.Point(center.latitude, center.longitude), 13);
-map.enableScrollWheelZoom();
+map.centerAndZoom(new BMap.Point(center.latitude, center.longitude), 13);	// 初始化地图,设置中心点坐标(市民中心)和地图级别。
+map.addControl(new BMap.NavigationControl());  // 添加鱼骨控件
+map.addControl(new BMap.NavigationControl({ type: BMAP_NAVIGATION_CONTROL_SMALL }));  // 添加迷你控件
+map.enableScrollWheelZoom();	// 激活滚动缩放控件   
 
 // 生成学校列表
 var str = '';
@@ -10,7 +12,7 @@ for(var i = 0; i < areaList.length; i++) {
 }
 $('.school-list').append(str);
 
-//生成学区
+// 生成学区
 for(i = 0; i < areaList.length; i++) {
 	addMarker(i);
 }
@@ -45,10 +47,12 @@ function addMarker(i) {
 // 点击标注点显示学区
 $('body').on('click', '.BMap_Marker.BMap_noprint', function() {
 	var index = $(this).index();
-	areaShow(index);
+	if (index <= areaList.length) {
+		areaShow(index);
+	}
 });
 
-// 搜索切换显示学区
+// 点击切换显示学区
 $('body').on('change', '.school-list', function() {
 	var index = parseInt($(this).val());
 	if(index === 999) {
@@ -57,6 +61,45 @@ $('body').on('change', '.school-list', function() {
 	} else {
 		areaShow(index);
 	}
+});
+
+// 搜索学区
+$('#searchTxt').keyup(function(e){
+	if (e.keyCode === 13) {
+		var val = $(this).val();
+		bSearch(val);
+	}
+});
+$('#searchBtn').click(function(){
+	var val = $('#searchTxt').val();
+	bSearch(val);
+});
+$('#searchClear').click(function(){
+	console.log(map)
+	
+});
+function bSearch(txt) {
+	var local = new BMap.LocalSearch(map, {
+		renderOptions:{map: map}
+	});
+	local.search(txt);
+}
+
+// 我的位置
+$('#searchLocal').click(function() {
+	var geolocation = new BMap.Geolocation();
+	geolocation.getCurrentPosition(function(r) {
+		if(this.getStatus() == BMAP_STATUS_SUCCESS) {
+			var mk = new BMap.Marker(r.point);
+			map.addOverlay(mk);
+			map.panTo(r.point);
+			console.log('您的位置：' + r.point.lng + ',' + r.point.lat);
+		} else {
+			console.log('failed' + this.getStatus());
+		}
+	}, {
+		enableHighAccuracy: true
+	})
 });
 
 // 学区边界
